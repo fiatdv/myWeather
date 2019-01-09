@@ -1,5 +1,5 @@
 //
-//  DataViewController.h
+//  CityTableViewCell.h
 //  myWeather
 //
 //  Created by Felipe on 1/9/19.
@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DataViewController : UIViewController
+@class City;
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface CityTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *weatherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
-@property (weak, nonatomic) id dataObject;
-@property (strong, nonatomic) NSNumber* dataIndex;
+
+-(void) initialize:(City*)city;
 
 @end
 
+NS_ASSUME_NONNULL_END
