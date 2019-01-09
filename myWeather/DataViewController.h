@@ -10,7 +10,9 @@
 
 @interface DataViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *dataLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *weatherLabel;
+@property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (strong, nonatomic) id dataObject;
 
 @end
