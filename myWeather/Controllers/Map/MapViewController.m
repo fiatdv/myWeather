@@ -12,8 +12,7 @@
 #import "CityStore.h"
 #import "City.h"
 
-static NSString* const weatherURL = @"http://api.openweathermap.org/data/2.5/weather";
-static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
+static NSString* const networkServiceFindTap = @"networkServiceFindTap";
 
 @interface MapViewController ()
 
@@ -60,7 +59,7 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
     point1.coordinate = tapPoint;
     [_map addAnnotation:point1];
     
-    [self.networkService makeGetRequestTo:[self URLForPoint:tapPoint] withIdentifier:@"foundTap" withKey:apiKey];
+    [self.weatherService makeGetRequestWithPt:tapPoint withIdentifier:networkServiceFindTap];
 
     // Show Busy Dialog... interrupt main ui
     
@@ -68,16 +67,6 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
 //    for(MKPointAnnotation* an in ann) {
 //        NSLog(@"%@",an);
 //    }
-}
-
-- (NSURL *)URLForPoint:(CLLocationCoordinate2D)pt
-{
-    NSString* urlStr = [NSString stringWithFormat:@"%@?lat=%f&lon=%f&APPID=%@&units=metric",weatherURL,pt.latitude,pt.longitude,apiKey];
-
-    NSURL *url = [NSURL URLWithString:urlStr];
-
-    NSLog(@"URLForPoint url = %@", url.absoluteString);
-    return url;
 }
 
 - (void)reloadMapWithCity:(NSString*)fromCity andState:(NSString*)fromState {
@@ -121,15 +110,15 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
 
 #pragma mark - networkServices
 
-- (NetworkService *)networkService
+- (WeatherService *)weatherService
 {
-    if (!_networkService) {
-        _networkService = [[NetworkService alloc] init];
-        _networkService.session = [NSURLSession sharedSession];
-        _networkService.delegate = self;
+    if (!_weatherService) {
+        _weatherService = [[WeatherService alloc] init];
+        _weatherService.session = [NSURLSession sharedSession];
+        _weatherService.delegate = self;
     }
     
-    return _networkService;
+    return _weatherService;
 }
 
 - (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error {
@@ -142,14 +131,18 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
             if(code) {
                 if(code.integerValue != 200)
                     NSLog(@"Network Error Received: %@",results);
-                else if(code.integerValue == 200){
-                    City* city = [[City alloc] initWithDict:results];
-                    [[CityStore shared] add:city];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self dismissViewController];
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
+                else if(code.integerValue == 200) {
+                    
+                    if([identifier isEqualToString:networkServiceFindTap]) {
+                        
+                        City* city = [[City alloc] initWithDict:results];
+                        [[CityStore shared] add:city];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self dismissViewController];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
 
-                    });
+                        });
+                    }
                 }
             }
         }

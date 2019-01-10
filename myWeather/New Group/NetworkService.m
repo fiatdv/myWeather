@@ -20,8 +20,8 @@ static BOOL sNetworkError = NO;
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
     //[urlRequest setValue:key forHTTPHeaderField:@"x-api-key"];
-//    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    //[urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    //[urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];

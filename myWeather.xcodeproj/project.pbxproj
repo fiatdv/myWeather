@@ -25,6 +25,7 @@
 		55024B2A21E70F12002E5C13 /* OriginMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B2921E70F12002E5C13 /* OriginMapView.m */; };
 		55024B2D21E70F84002E5C13 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B2C21E70F84002E5C13 /* MapAnnotation.m */; };
 		55024B3821E7203A002E5C13 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B3721E7203A002E5C13 /* NetworkService.m */; };
+		55024B3C21E79C74002E5C13 /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B3B21E79C74002E5C13 /* WeatherService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,8 @@
 		55024B2C21E70F84002E5C13 /* MapAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		55024B3621E7203A002E5C13 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkService.h; path = "myWeather/New Group/NetworkService.h"; sourceTree = SOURCE_ROOT; };
 		55024B3721E7203A002E5C13 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkService.m; path = "myWeather/New Group/NetworkService.m"; sourceTree = SOURCE_ROOT; };
+		55024B3A21E79C74002E5C13 /* WeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherService.h; sourceTree = "<group>"; };
+		55024B3B21E79C74002E5C13 /* WeatherService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 			children = (
 				55024B3621E7203A002E5C13 /* NetworkService.h */,
 				55024B3721E7203A002E5C13 /* NetworkService.m */,
+				55024B3A21E79C74002E5C13 /* WeatherService.h */,
+				55024B3B21E79C74002E5C13 /* WeatherService.m */,
 			);
 			name = Utils;
 			path = "New Group";
@@ -254,6 +259,7 @@
 				55024AF621E685FD002E5C13 /* RootViewController.m in Sources */,
 				55024B1521E6987A002E5C13 /* CityTableViewCell.m in Sources */,
 				55024B0F21E68E37002E5C13 /* City.m in Sources */,
+				55024B3C21E79C74002E5C13 /* WeatherService.m in Sources */,
 				55024AFC21E685FD002E5C13 /* ModelController.m in Sources */,
 				55024AF921E685FD002E5C13 /* DataViewController.m in Sources */,
 				55024B1B21E69EFC002E5C13 /* CityViewController.m in Sources */,

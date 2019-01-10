@@ -19,9 +19,9 @@
 }
 
 -(void) initialize:(NSString*)city weather:(NSString*)weather temp:(NSString*)temp {
-    self.city = city;
-    self.currWeather = weather;
-    self.currTemp = temp;
+    self.city = (city && city.length > 0)? city : @"Unknown";
+    self.currWeather = (weather && weather.length > 0)? weather : @"Unknown";
+    self.currTemp = (temp && temp.length > 0)? temp : @"-";
 }
 
 -(instancetype) initWithDict:(NSDictionary*)dict {
@@ -29,11 +29,15 @@
     @try {
         _store = dict.copy;
         
-        //TODO: Addl error checking...
+        // city
+        NSString* city = (_store[@"name"])? _store[@"name"] : @"";
         
+        // weather
         NSArray* wArray = _store[@"weather"];
-        NSDictionary* weather = (wArray)? wArray.firstObject : nil;
+        NSDictionary* wDict = (wArray)? wArray.firstObject : nil;
+        NSString* weather = (wDict[@"description"])? wDict[@"description"] : @"";
         
+        // temp:
         NSDictionary* main = _store[@"main"];
         id t = main[@"temp"];
         NSString* temp = @"-";
@@ -42,12 +46,12 @@
         else {
             NSNumber* k = t;
             NSNumber* f = @((k.integerValue * 1.8) + 32);
-//            NSNumber* c = @((k.integerValue - 32) / 1.8);
+            //NSNumber* c = @((k.integerValue - 32) / 1.8);
             temp = [[NSString alloc] initWithFormat:@"%3d",f.intValue];
         }
         
-        [self initialize:_store[@"name"]
-                 weather:weather[@"description"]
+        [self initialize:city
+                 weather:weather
                     temp:temp];
     }
     @catch(NSException* e) {
