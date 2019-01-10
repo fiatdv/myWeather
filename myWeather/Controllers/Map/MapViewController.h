@@ -12,10 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class OriginMapView;
+@class NetworkService;
+@protocol NetworkServiceDelegate;
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController <NetworkServiceDelegate>
 
 @property (weak, nonatomic) IBOutlet OriginMapView *map;
+@property (strong, nonatomic) NetworkService *networkService;
+
 @end
 
 NS_ASSUME_NONNULL_END

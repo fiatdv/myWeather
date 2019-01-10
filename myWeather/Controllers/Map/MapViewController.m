@@ -8,6 +8,10 @@
 
 #import "MapViewController.h"
 #import "OriginMapView.h"
+#import "NetworkService.h"
+
+static NSString* const urlStr = @"http://api.openweathermap.org/data/2.5/weather";
+static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
 
 @interface MapViewController ()
 
@@ -54,12 +58,30 @@
     point1.coordinate = tapPoint;
     [_map addAnnotation:point1];
     
-    NSArray* ann = [_map annotations];
-    for(MKPointAnnotation* an in ann) {
-        NSLog(@"%@",an);
-    }
+    [self.networkService makeGetRequestTo:[self URLForPoint:tapPoint] withIdentifier:@"foundTap" withKey:apiKey];
+
+//    NSArray* ann = [_map annotations];
+//    for(MKPointAnnotation* an in ann) {
+//        NSLog(@"%@",an);
+//    }
 }
 
+- (NSURL *)URLForPoint:(CLLocationCoordinate2D)pt
+{
+    NSURL *url = [NSURL URLWithString:urlStr];
+    
+    NSString* queryString = [NSString stringWithFormat:@"lat=%f&lon=%f&APPID=%@&units=metric",pt.latitude,pt.longitude,apiKey];
+    if(queryString) {
+        queryString = [queryString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        url = [NSURL URLWithString:queryString relativeToURL:url];
+    }
+    
+    if(!url.absoluteString)
+        NSLog(@"");
+    
+    NSLog(@"URLForPoint url = %@", url.absoluteString);
+    return url;
+}
 /*
 #pragma mark - Navigation
 
@@ -103,5 +125,27 @@
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - networkServices
+
+- (NetworkService *)networkService
+{
+    if (!_networkService) {
+        _networkService = [[NetworkService alloc] init];
+        _networkService.session = [NSURLSession sharedSession];
+        _networkService.delegate = self;
+    }
+    
+    return _networkService;
+}
+
+- (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error {
+    
+    if (!error) {
+        NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+        NSLog(@"Received: %@",results);
+    }
+}
+
 
 @end
