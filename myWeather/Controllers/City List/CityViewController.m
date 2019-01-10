@@ -7,6 +7,7 @@
 //
 
 #import "CityViewController.h"
+#import "MapViewController.h"
 
 @interface CityViewController ()
 
@@ -30,7 +31,19 @@
 */
 - (IBAction)closeWindow:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    MapViewController *vc = (MapViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [self.view.window.layer addAnimation:transition forKey:nil];
+    
+    [self presentViewController:vc animated:NO completion:nil];
+
+    // Dismiss:
+    // [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

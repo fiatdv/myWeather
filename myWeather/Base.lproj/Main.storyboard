@@ -190,7 +190,8 @@
                                     <constraint firstAttribute="width" constant="40" id="WyY-Xo-mbj"/>
                                     <constraint firstAttribute="height" constant="40" id="sYU-Ku-Izj"/>
                                 </constraints>
-                                <state key="normal" title="X"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="+"/>
                                 <connections>
                                     <action selector="closeWindow:" destination="xMD-wp-fpb" eventType="touchUpInside" id="T8H-3a-tkh"/>
                                 </connections>
@@ -213,6 +214,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIR-yi-qNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1322.4000000000001" y="-243.32833583208398"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="9oa-eK-CH3">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="S1x-qa-J1K" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jiL-D5-s2N"/>
+                        <viewControllerLayoutGuide type="bottom" id="zZY-g7-qyW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c7k-I7-hj7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsCompass="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDe-Us-8gK" customClass="OriginMapView">
+                                <rect key="frame" x="16" y="20" width="343" height="580"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yx0-Ly-2Od">
+                                <rect key="frame" x="307" y="615" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1P7-KJ-ZY4"/>
+                                    <constraint firstAttribute="height" constant="40" id="CzZ-Ag-KgK"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="TYh-xI-KTD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fPp-K7-aBr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="closeWindow:" destination="S1x-qa-J1K" eventType="touchUpInside" id="KVL-MI-uKn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yx0-Ly-2Od" secondAttribute="trailing" constant="12" id="DQH-lS-eYK"/>
+                            <constraint firstItem="RDe-Us-8gK" firstAttribute="top" secondItem="c7k-I7-hj7" secondAttribute="topMargin" id="GfD-eU-31e"/>
+                            <constraint firstItem="zZY-g7-qyW" firstAttribute="top" secondItem="RDe-Us-8gK" secondAttribute="bottom" constant="67" id="K41-A2-zB1"/>
+                            <constraint firstItem="RDe-Us-8gK" firstAttribute="leading" secondItem="c7k-I7-hj7" secondAttribute="leadingMargin" id="ToO-vV-IwI"/>
+                            <constraint firstItem="zZY-g7-qyW" firstAttribute="top" secondItem="Yx0-Ly-2Od" secondAttribute="bottom" constant="12" id="n2K-1m-x5S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RDe-Us-8gK" secondAttribute="trailing" id="ptp-4g-bQ7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="RDe-Us-8gK" id="nw3-GY-p2L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSa-lT-nmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2034.4000000000001" y="-238.83058470764618"/>
         </scene>
     </scenes>
 </document>

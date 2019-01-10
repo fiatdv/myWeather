@@ -20,6 +20,10 @@
 		55024B1521E6987A002E5C13 /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1421E6987A002E5C13 /* CityTableViewCell.m */; };
 		55024B1B21E69EFC002E5C13 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1A21E69EFC002E5C13 /* CityViewController.m */; };
 		55024B1E21E6A57A002E5C13 /* CityStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1D21E6A57A002E5C13 /* CityStore.m */; };
+		55024B2421E70C13002E5C13 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B2221E70C13002E5C13 /* MapViewController.m */; };
+		55024B2721E70CE3002E5C13 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55024B2621E70CE3002E5C13 /* MapKit.framework */; };
+		55024B2A21E70F12002E5C13 /* OriginMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B2921E70F12002E5C13 /* OriginMapView.m */; };
+		55024B2D21E70F84002E5C13 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B2C21E70F84002E5C13 /* MapAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,13 @@
 		55024B1A21E69EFC002E5C13 /* CityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		55024B1C21E6A57A002E5C13 /* CityStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityStore.h; sourceTree = "<group>"; };
 		55024B1D21E6A57A002E5C13 /* CityStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityStore.m; sourceTree = "<group>"; };
+		55024B2221E70C13002E5C13 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		55024B2321E70C13002E5C13 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		55024B2621E70CE3002E5C13 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		55024B2821E70F12002E5C13 /* OriginMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OriginMapView.h; sourceTree = "<group>"; };
+		55024B2921E70F12002E5C13 /* OriginMapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OriginMapView.m; sourceTree = "<group>"; };
+		55024B2B21E70F84002E5C13 /* MapAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		55024B2C21E70F84002E5C13 /* MapAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55024B2721E70CE3002E5C13 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +77,7 @@
 			children = (
 				55024AF021E685FD002E5C13 /* myWeather */,
 				55024AEF21E685FD002E5C13 /* Products */,
+				55024B2521E70CE3002E5C13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,22 +94,8 @@
 			children = (
 				55024AF121E685FD002E5C13 /* AppDelegate.h */,
 				55024AF221E685FD002E5C13 /* AppDelegate.m */,
-				55024AF421E685FD002E5C13 /* RootViewController.h */,
-				55024AF521E685FD002E5C13 /* RootViewController.m */,
-				55024AF721E685FD002E5C13 /* DataViewController.h */,
-				55024AF821E685FD002E5C13 /* DataViewController.m */,
-				55024AFA21E685FD002E5C13 /* ModelController.h */,
-				55024AFB21E685FD002E5C13 /* ModelController.m */,
-				55024B1C21E6A57A002E5C13 /* CityStore.h */,
-				55024B1D21E6A57A002E5C13 /* CityStore.m */,
-				55024B0D21E68E37002E5C13 /* City.h */,
-				55024B0E21E68E37002E5C13 /* City.m */,
-				55024B1921E69EFC002E5C13 /* CityViewController.h */,
-				55024B1A21E69EFC002E5C13 /* CityViewController.m */,
-				55024B1021E6985B002E5C13 /* CityTable.h */,
-				55024B1121E6985B002E5C13 /* CityTable.m */,
-				55024B1321E6987A002E5C13 /* CityTableViewCell.h */,
-				55024B1421E6987A002E5C13 /* CityTableViewCell.m */,
+				55024B3121E71EBD002E5C13 /* Controllers */,
+				55024B3021E71EAC002E5C13 /* Model */,
 				55024B0021E685FF002E5C13 /* Assets.xcassets */,
 				55024AFD21E685FD002E5C13 /* Main.storyboard */,
 				55024B0221E685FF002E5C13 /* LaunchScreen.storyboard */,
@@ -104,6 +103,66 @@
 				55024B0621E685FF002E5C13 /* main.m */,
 			);
 			path = myWeather;
+			sourceTree = "<group>";
+		};
+		55024B2521E70CE3002E5C13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55024B2621E70CE3002E5C13 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		55024B2E21E71E84002E5C13 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				55024B2321E70C13002E5C13 /* MapViewController.h */,
+				55024B2221E70C13002E5C13 /* MapViewController.m */,
+				55024B2821E70F12002E5C13 /* OriginMapView.h */,
+				55024B2921E70F12002E5C13 /* OriginMapView.m */,
+				55024B2B21E70F84002E5C13 /* MapAnnotation.h */,
+				55024B2C21E70F84002E5C13 /* MapAnnotation.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		55024B2F21E71E97002E5C13 /* City List */ = {
+			isa = PBXGroup;
+			children = (
+				55024B1921E69EFC002E5C13 /* CityViewController.h */,
+				55024B1A21E69EFC002E5C13 /* CityViewController.m */,
+				55024B1021E6985B002E5C13 /* CityTable.h */,
+				55024B1121E6985B002E5C13 /* CityTable.m */,
+				55024B1321E6987A002E5C13 /* CityTableViewCell.h */,
+				55024B1421E6987A002E5C13 /* CityTableViewCell.m */,
+			);
+			path = "City List";
+			sourceTree = "<group>";
+		};
+		55024B3021E71EAC002E5C13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				55024B1C21E6A57A002E5C13 /* CityStore.h */,
+				55024B1D21E6A57A002E5C13 /* CityStore.m */,
+				55024B0D21E68E37002E5C13 /* City.h */,
+				55024B0E21E68E37002E5C13 /* City.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		55024B3121E71EBD002E5C13 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				55024AF421E685FD002E5C13 /* RootViewController.h */,
+				55024AF521E685FD002E5C13 /* RootViewController.m */,
+				55024AF721E685FD002E5C13 /* DataViewController.h */,
+				55024AF821E685FD002E5C13 /* DataViewController.m */,
+				55024AFA21E685FD002E5C13 /* ModelController.h */,
+				55024AFB21E685FD002E5C13 /* ModelController.m */,
+				55024B2F21E71E97002E5C13 /* City List */,
+				55024B2E21E71E84002E5C13 /* Map */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55024B0721E685FF002E5C13 /* main.m in Sources */,
+				55024B2D21E70F84002E5C13 /* MapAnnotation.m in Sources */,
 				55024AF621E685FD002E5C13 /* RootViewController.m in Sources */,
 				55024B1521E6987A002E5C13 /* CityTableViewCell.m in Sources */,
 				55024B0F21E68E37002E5C13 /* City.m in Sources */,
@@ -186,6 +246,8 @@
 				55024B1E21E6A57A002E5C13 /* CityStore.m in Sources */,
 				55024B1221E6985B002E5C13 /* CityTable.m in Sources */,
 				55024AF321E685FD002E5C13 /* AppDelegate.m in Sources */,
+				55024B2421E70C13002E5C13 /* MapViewController.m in Sources */,
+				55024B2A21E70F12002E5C13 /* OriginMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
