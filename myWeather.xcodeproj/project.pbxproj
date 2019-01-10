@@ -103,8 +103,8 @@
 				55024B3121E71EBD002E5C13 /* Controllers */,
 				55024B3021E71EAC002E5C13 /* Model */,
 				55024B3921E72DCA002E5C13 /* Utils */,
-				55024B0021E685FF002E5C13 /* Assets.xcassets */,
 				55024AFD21E685FD002E5C13 /* Main.storyboard */,
+				55024B0021E685FF002E5C13 /* Assets.xcassets */,
 				55024B0221E685FF002E5C13 /* LaunchScreen.storyboard */,
 				55024B0521E685FF002E5C13 /* Info.plist */,
 				55024B0621E685FF002E5C13 /* main.m */,
@@ -120,7 +120,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		55024B2E21E71E84002E5C13 /* Map */ = {
+		55024B2E21E71E84002E5C13 /* Map Screen */ = {
 			isa = PBXGroup;
 			children = (
 				55024B2321E70C13002E5C13 /* MapViewController.h */,
@@ -130,10 +130,10 @@
 				55024B2B21E70F84002E5C13 /* MapAnnotation.h */,
 				55024B2C21E70F84002E5C13 /* MapAnnotation.m */,
 			);
-			path = Map;
+			path = "Map Screen";
 			sourceTree = "<group>";
 		};
-		55024B2F21E71E97002E5C13 /* City List */ = {
+		55024B2F21E71E97002E5C13 /* Home Screen  */ = {
 			isa = PBXGroup;
 			children = (
 				55024B1921E69EFC002E5C13 /* CityViewController.h */,
@@ -143,7 +143,7 @@
 				55024B1321E6987A002E5C13 /* CityTableViewCell.h */,
 				55024B1421E6987A002E5C13 /* CityTableViewCell.m */,
 			);
-			path = "City List";
+			path = "Home Screen ";
 			sourceTree = "<group>";
 		};
 		55024B3021E71EAC002E5C13 /* Model */ = {
@@ -160,14 +160,10 @@
 		55024B3121E71EBD002E5C13 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				55024AF421E685FD002E5C13 /* RootViewController.h */,
-				55024AF521E685FD002E5C13 /* RootViewController.m */,
-				55024AF721E685FD002E5C13 /* DataViewController.h */,
-				55024AF821E685FD002E5C13 /* DataViewController.m */,
-				55024AFA21E685FD002E5C13 /* ModelController.h */,
-				55024AFB21E685FD002E5C13 /* ModelController.m */,
-				55024B2F21E71E97002E5C13 /* City List */,
-				55024B2E21E71E84002E5C13 /* Map */,
+				55024B2F21E71E97002E5C13 /* Home Screen  */,
+				55024B2E21E71E84002E5C13 /* Map Screen */,
+				55024B3E21E80942002E5C13 /* City Screen */,
+				55024B3D21E8092A002E5C13 /* original unused */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -182,6 +178,26 @@
 			);
 			name = Utils;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		55024B3D21E8092A002E5C13 /* original unused */ = {
+			isa = PBXGroup;
+			children = (
+				55024AF421E685FD002E5C13 /* RootViewController.h */,
+				55024AF521E685FD002E5C13 /* RootViewController.m */,
+				55024AFA21E685FD002E5C13 /* ModelController.h */,
+				55024AFB21E685FD002E5C13 /* ModelController.m */,
+			);
+			path = "original unused";
+			sourceTree = "<group>";
+		};
+		55024B3E21E80942002E5C13 /* City Screen */ = {
+			isa = PBXGroup;
+			children = (
+				55024AF721E685FD002E5C13 /* DataViewController.h */,
+				55024AF821E685FD002E5C13 /* DataViewController.m */,
+			);
+			path = "City Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

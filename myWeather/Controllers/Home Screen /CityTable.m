@@ -10,6 +10,7 @@
 #import "City.h"
 #import "CityTableViewCell.h"
 #import "CityStore.h"
+#import "CityViewController.h"
 
 static NSString* const cellId = @"CityTableViewCell";
 
@@ -53,7 +54,7 @@ static NSString* const cellId = @"CityTableViewCell";
         CityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
         if(cell) {
             City* city = [[CityStore shared] objectAtIndex:indexPath.row];
-            [cell initialize:city];
+            [cell initialize:city at:indexPath.row];
             return cell;
         }
     }
@@ -63,8 +64,33 @@ static NSString* const cellId = @"CityTableViewCell";
     return nil;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self deleteRowAtIndexPath:indexPath];
+        
+    }
+}
+
+- (void)deleteRowAtIndexPath:(NSIndexPath*)indexPath {
+
+    @try {
+        [[CityStore shared] removeObjectAtIndex:indexPath.row];
+        [self deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    @catch(NSException* e) {
+        NSLog(@"NSException at deleteRowAtIndexPath %@",e.description);
+    }
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    City* city = [[CityStore shared] objectAtIndex:indexPath.row];
+    NSDictionary* info = @{@"city":city};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kViewCity object:nil userInfo:info];
 }
 
 /*

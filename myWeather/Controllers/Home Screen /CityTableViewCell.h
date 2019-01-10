@@ -16,8 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImage;
 
--(void) initialize:(City*)city;
+
+-(void) initialize:(City*)city at:(NSInteger)row;
 
 @end
 

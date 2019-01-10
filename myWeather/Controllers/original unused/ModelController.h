@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WeatherService.h"
 
 @class DataViewController;
 
-@interface ModelController : NSObject <UIPageViewControllerDataSource, NetworkServiceDelegate>
-
-@property (strong, nonatomic) WeatherService *weatherService;
+@interface ModelController : NSObject <UIPageViewControllerDataSource>
 
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController;

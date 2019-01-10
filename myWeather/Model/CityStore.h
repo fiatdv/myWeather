@@ -25,6 +25,7 @@ static NSString* const kCityStoreUpdate = @"CityStoreUpdate";
 -(NSInteger) count;
 
 -(City*) objectAtIndex:(NSInteger)index;
+-(void) removeObjectAtIndex:(NSInteger)index;
 
 @end
 

@@ -23,11 +23,15 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
+
     [super viewWillAppear:animated];
-    City* city = self.dataObject;
-    self.cityLabel.text = city.city;
-    self.weatherLabel.text = city.currWeather;
-    self.temperatureLabel.text = city.currTemp;
+
+    if(!_city && _dataObject)
+        _city = _dataObject;
+
+    self.cityLabel.text = _city.city;
+    self.weatherLabel.text = _city.currWeather;
+    self.temperatureLabel.text = _city.currTemp;
 }
 
 - (IBAction)showCities:(id)sender {
@@ -42,6 +46,11 @@
     [self.view.window.layer addAnimation:transition forKey:nil];
     
     [self presentViewController:vc animated:NO completion:nil];
+}
+
+- (IBAction)closeWindow:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

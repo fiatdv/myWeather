@@ -7,14 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WeatherService.h"
 
 @class CityTable;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CityViewController : UIViewController
+static NSString* const kViewCity = @"kViewCity";
+
+@interface CityViewController : UIViewController <NetworkServiceDelegate>
 
 @property (weak, nonatomic) IBOutlet CityTable *cityTable;
+
+@property (strong, nonatomic) WeatherService *weatherService;
+
 @end
 
 NS_ASSUME_NONNULL_END
