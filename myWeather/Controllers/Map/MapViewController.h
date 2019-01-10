@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "NetworkService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class OriginMapView;
-@class NetworkService;
-@protocol NetworkServiceDelegate;
 
 @interface MapViewController : UIViewController <NetworkServiceDelegate>
 

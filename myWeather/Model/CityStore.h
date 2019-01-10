@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+static NSString* const kCityStoreUpdate = @"CityStoreUpdate";
+
 @class City;
 
 @interface CityStore : NSObject

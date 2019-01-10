@@ -59,8 +59,8 @@
 		55024B2921E70F12002E5C13 /* OriginMapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OriginMapView.m; sourceTree = "<group>"; };
 		55024B2B21E70F84002E5C13 /* MapAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		55024B2C21E70F84002E5C13 /* MapAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
-		55024B3621E7203A002E5C13 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkService.h; path = myWeather/Utils/NetworkService.h; sourceTree = SOURCE_ROOT; };
-		55024B3721E7203A002E5C13 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkService.m; path = myWeather/Utils/NetworkService.m; sourceTree = SOURCE_ROOT; };
+		55024B3621E7203A002E5C13 /* NetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkService.h; path = "myWeather/New Group/NetworkService.h"; sourceTree = SOURCE_ROOT; };
+		55024B3721E7203A002E5C13 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkService.m; path = "myWeather/New Group/NetworkService.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +99,7 @@
 				55024AF221E685FD002E5C13 /* AppDelegate.m */,
 				55024B3121E71EBD002E5C13 /* Controllers */,
 				55024B3021E71EAC002E5C13 /* Model */,
-				55024B3521E7200F002E5C13 /* Utils */,
+				55024B3921E72DCA002E5C13 /* Utils */,
 				55024B0021E685FF002E5C13 /* Assets.xcassets */,
 				55024AFD21E685FD002E5C13 /* Main.storyboard */,
 				55024B0221E685FF002E5C13 /* LaunchScreen.storyboard */,
@@ -169,14 +169,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		55024B3521E7200F002E5C13 /* Utils */ = {
+		55024B3921E72DCA002E5C13 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				55024B3621E7203A002E5C13 /* NetworkService.h */,
 				55024B3721E7203A002E5C13 /* NetworkService.m */,
 			);
 			name = Utils;
-			path = Model/Utils;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

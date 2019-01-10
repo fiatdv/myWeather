@@ -29,10 +29,15 @@ static NSString* const cellId = @"CityTableViewCell";
     
     self.delegate = self;
     self.dataSource = self;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCityTable) name:kCityStoreUpdate object:nil];
 }
 
-- (void)viewDidLoad {
+-(void) refreshCityTable {
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self reloadData];
+    });
 }
 
 #pragma mark - Table view data source

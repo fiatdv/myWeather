@@ -9,8 +9,10 @@
 #import "MapViewController.h"
 #import "OriginMapView.h"
 #import "NetworkService.h"
+#import "CityStore.h"
+#import "City.h"
 
-static NSString* const urlStr = @"http://api.openweathermap.org/data/2.5/weather";
+static NSString* const weatherURL = @"http://api.openweathermap.org/data/2.5/weather";
 static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
 
 @interface MapViewController ()
@@ -60,6 +62,8 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
     
     [self.networkService makeGetRequestTo:[self URLForPoint:tapPoint] withIdentifier:@"foundTap" withKey:apiKey];
 
+    // Show Busy Dialog... interrupt main ui
+    
 //    NSArray* ann = [_map annotations];
 //    for(MKPointAnnotation* an in ann) {
 //        NSLog(@"%@",an);
@@ -68,29 +72,13 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
 
 - (NSURL *)URLForPoint:(CLLocationCoordinate2D)pt
 {
+    NSString* urlStr = [NSString stringWithFormat:@"%@?lat=%f&lon=%f&APPID=%@&units=metric",weatherURL,pt.latitude,pt.longitude,apiKey];
+
     NSURL *url = [NSURL URLWithString:urlStr];
-    
-    NSString* queryString = [NSString stringWithFormat:@"lat=%f&lon=%f&APPID=%@&units=metric",pt.latitude,pt.longitude,apiKey];
-    if(queryString) {
-        queryString = [queryString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        url = [NSURL URLWithString:queryString relativeToURL:url];
-    }
-    
-    if(!url.absoluteString)
-        NSLog(@"");
-    
+
     NSLog(@"URLForPoint url = %@", url.absoluteString);
     return url;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void)reloadMapWithCity:(NSString*)fromCity andState:(NSString*)fromState {
     
@@ -121,9 +109,14 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
     }
 }
 
+-(void) dismissViewController {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)closeWindow:(id)sender {
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewController];
 }
 
 #pragma mark - networkServices
@@ -143,7 +136,26 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
     
     if (!error) {
         NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-        NSLog(@"Received: %@",results);
+        
+        @try {
+            NSNumber* code = results[@"cod"];
+            if(code) {
+                if(code.integerValue != 200)
+                    NSLog(@"Network Error Received: %@",results);
+                else if(code.integerValue == 200){
+                    City* city = [[City alloc] initWithDict:results];
+                    [[CityStore shared] add:city];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self dismissViewController];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
+
+                    });
+                }
+            }
+        }
+        @catch(NSException *e) {
+            NSLog(@"*** Caught Exception in MapViewController: %@",e.description);
+        }
     }
 }
 

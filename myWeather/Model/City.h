@@ -15,8 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSString* city;
 @property(nonatomic, strong) NSString* currWeather;
 @property(nonatomic, strong) NSString* currTemp;
+@property(nonatomic, strong) NSDictionary* store;
 
 - (instancetype)init:(NSString*)city weather:(NSString*)weather temp:(NSString*)temp;
+
+-(instancetype) initWithDict:(NSDictionary*)dict;
 
 @end
 
