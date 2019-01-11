@@ -26,6 +26,8 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
     [self getWeatherAtBackBase];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewCity:) name:kViewCity object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:applicationWillEnterForeground object:nil];
 }
 
 -(void) getWeatherAtBackBase {
@@ -76,6 +78,17 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
     [self.view.window.layer addAnimation:transition forKey:nil];
 
     [self presentViewController:vc animated:NO completion:nil];
+}
+
+-(void) applicationWillEnterForeground {
+
+    for(int i = 0 ; i < [[CityStore shared] count]; i++) {
+        City* city = [[CityStore shared] objectAtIndex:i];
+        if(city && city.hasCoords) {
+            CLLocationCoordinate2D coords = [city getCoords];
+            [self.weatherService makeGetRequestWithPt:coords withIdentifier:networkServiceBackBase];
+        }
+    }
 }
 
 #pragma mark - networkServices

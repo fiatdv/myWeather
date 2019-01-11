@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "myWeatherConsts.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-static NSString* const kCityStoreUpdate = @"CityStoreUpdate";
 
 @class City;
 
@@ -26,6 +25,9 @@ static NSString* const kCityStoreUpdate = @"CityStoreUpdate";
 
 -(City*) objectAtIndex:(NSInteger)index;
 -(void) removeObjectAtIndex:(NSInteger)index;
+
+-(void) saveStore;
+-(void) loadStore;
 
 @end
 

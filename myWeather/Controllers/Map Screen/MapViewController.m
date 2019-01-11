@@ -140,7 +140,6 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self dismissViewController];
                             [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
-
                         });
                     }
                 }

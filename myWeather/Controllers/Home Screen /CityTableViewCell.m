@@ -33,7 +33,7 @@
         self.backgroundColor = [UIColor colorWithRed:230/255.0f green:230/255.0f blue:230/255.0f alpha:.87];
     }
 
-    self.cityLabel.text = city.city;
+    self.cityLabel.text = city.name;
     self.temperatureLabel.text = city.currTemp;
     
     [self setWeatherIcon:city];

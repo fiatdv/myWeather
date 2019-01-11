@@ -29,7 +29,7 @@
     if(!_city && _dataObject)
         _city = _dataObject;
 
-    self.cityLabel.text = _city.city;
+    self.cityLabel.text = _city.name;
     self.weatherLabel.text = _city.currWeather;
     self.temperatureLabel.text = _city.currTemp;
 }

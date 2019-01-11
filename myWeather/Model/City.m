@@ -10,16 +10,26 @@
 
 @implementation City
 
-- (instancetype)init:(NSString*)city weather:(NSString*)weather temp:(NSString*)temp {
+- (instancetype)init:(NSString*)name weather:(NSString*)weather temp:(NSString*)temp {
     self = [super init];
     if (self) {
-        [self initialize:city weather:weather temp:temp];
+        [self initialize:name weather:weather temp:temp];
     }
     return self;
 }
 
--(void) initialize:(NSString*)city weather:(NSString*)weather temp:(NSString*)temp {
-    self.city = (city && city.length > 0)? city : @"Unknown";
+-(instancetype) init:(NSString*)name lat:(NSNumber*)lat lon:(NSNumber*)lon {
+    self = [super init];
+    if (self) {
+        self.name = name;
+        self.latitude = lat;
+        self.longitude = lon;
+    }
+    return self;
+}
+
+-(void) initialize:(NSString*)name weather:(NSString*)weather temp:(NSString*)temp {
+    self.name = (name && name.length > 0)? name : @"Unknown";
     self.currWeather = (weather && weather.length > 0)? weather : @"Unknown";
     self.currTemp = (temp && temp.length > 0)? temp : @"-";
 }
@@ -43,10 +53,10 @@
         NSString* temp = @"-";
         if([t isKindOfClass:[NSString class]])
             temp = t;
-        else {
+        else if([t isKindOfClass:[NSNumber class]]) {
             NSNumber* k = t;
-            NSNumber* f = @((k.integerValue * 1.8) + 32);
-            //NSNumber* c = @((k.integerValue - 32) / 1.8);
+            NSNumber* f = @(round((k.doubleValue * 1.8) + 32));
+            //NSNumber* c = @(round((doubleValue - 32) / 1.8));
             temp = [[NSString alloc] initWithFormat:@"%3d",f.intValue];
         }
         
@@ -59,6 +69,37 @@
         NSLog(@"*** Caught Exception in City:initWithDict: %@",e.description);
     }
     return self;
+}
+
+-(BOOL) hasCoords {
+    return ((_store != nil) || (_latitude && _longitude));
+}
+
+-(CLLocationCoordinate2D) getCoords {
+
+    if(!_latitude || !_longitude)
+        return [self getCoordsFromStore];
+    
+    return CLLocationCoordinate2DMake(_latitude.doubleValue,_longitude.doubleValue);
+}
+
+-(CLLocationCoordinate2D) getCoordsFromStore {
+    
+    NSNumber* lat = @(0);
+    NSNumber* lon = @(0);
+    
+    // coord:
+    if(_store) {
+        NSDictionary* coord = _store[@"coord"];
+        if(coord) {
+            lat = (coord[@"lat"]) ? coord[@"lat"] : lat;
+            lon = (coord[@"lon"]) ? coord[@"lon"] : lon;
+            _latitude = lat;
+            _longitude = lon;
+        }
+    }
+    
+    return CLLocationCoordinate2DMake(lat.doubleValue,lon.doubleValue);
 }
 
 @end

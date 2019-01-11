@@ -64,6 +64,7 @@
 		55024B3721E7203A002E5C13 /* NetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkService.m; path = "myWeather/New Group/NetworkService.m"; sourceTree = SOURCE_ROOT; };
 		55024B3A21E79C74002E5C13 /* WeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherService.h; sourceTree = "<group>"; };
 		55024B3B21E79C74002E5C13 /* WeatherService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherService.m; sourceTree = "<group>"; };
+		55024B3F21E8283B002E5C13 /* myWeatherConsts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myWeatherConsts.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +99,7 @@
 		55024AF021E685FD002E5C13 /* myWeather */ = {
 			isa = PBXGroup;
 			children = (
+				55024B3F21E8283B002E5C13 /* myWeatherConsts.h */,
 				55024AF121E685FD002E5C13 /* AppDelegate.h */,
 				55024AF221E685FD002E5C13 /* AppDelegate.m */,
 				55024B3121E71EBD002E5C13 /* Controllers */,

@@ -7,19 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface City : NSObject
 
-@property(nonatomic, strong) NSString* city;
+@property(nonatomic, strong) NSString* name;
 @property(nonatomic, strong) NSString* currWeather;
 @property(nonatomic, strong) NSString* currTemp;
+@property(nonatomic, strong) NSNumber* latitude;
+@property(nonatomic, strong) NSNumber* longitude;
 @property(nonatomic, strong) NSDictionary* store;
 
-- (instancetype)init:(NSString*)city weather:(NSString*)weather temp:(NSString*)temp;
+-(instancetype)init:(NSString*)name weather:(NSString*)weather temp:(NSString*)temp;
+
+-(instancetype) init:(NSString*)name lat:(NSNumber*)lat lon:(NSNumber*)lon;
 
 -(instancetype) initWithDict:(NSDictionary*)dict;
+
+-(BOOL) hasCoords;
+-(CLLocationCoordinate2D) getCoords;
 
 @end
 
