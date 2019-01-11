@@ -40,7 +40,7 @@
         _store = dict.copy;
         
         // city
-        NSString* city = (_store[@"name"])? _store[@"name"] : @"";
+        NSString* name = (_store[@"name"])? _store[@"name"] : @"";
         
         // weather
         NSArray* wArray = _store[@"weather"];
@@ -60,9 +60,36 @@
             temp = [[NSString alloc] initWithFormat:@"%3d",f.intValue];
         }
         
-        [self initialize:city
+        [self initialize:name
                  weather:weather
                     temp:temp];
+        
+        id h = main[@"humidity"];
+        _humidity = @"-";
+        if(h && ([h isKindOfClass:[NSNumber class]]))
+            _humidity = [NSString stringWithFormat:@"%3d%%",((NSNumber*)h).intValue];
+ 
+        _rainChance = @"-"; // TODO: _rainChance not rain volume
+        id p = _store[@"rain"];
+        if(p && ([p isKindOfClass:[NSDictionary class]])) {
+            id v = p[@"1h"];
+            if(v && ([v isKindOfClass:[NSNumber class]]))
+                _rainChance = [NSString stringWithFormat:@"%3.2f /h",((NSNumber*)v).floatValue];
+        }
+        
+        _wind = @"-";
+        _windDirection = @"-";
+        id w = _store[@"wind"];
+        if(w && ([w isKindOfClass:[NSDictionary class]])) {
+            id s = w[@"speed"];
+            if(s && ([s isKindOfClass:[NSNumber class]]))
+                _wind = [NSString stringWithFormat:@"%3d m/s",((NSNumber*)s).intValue];
+            s = w[@"deg"];
+            if(s && ([s isKindOfClass:[NSNumber class]]))
+                _windDirection = [NSString stringWithFormat:@"%3d deg",((NSNumber*)s).intValue];
+        }
+        
+        
     }
     @catch(NSException* e) {
         // TODO:Handle error

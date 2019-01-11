@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSNumber* longitude;
 @property(nonatomic, strong) NSDictionary* store;
 @property(nonatomic, strong) UIImage* icon;
+@property(nonatomic, strong) NSString* humidity;
+@property(nonatomic, strong) NSString* rainChance;
+@property(nonatomic, strong) NSString* wind;
+@property(nonatomic, strong) NSString* windDirection;
 
 -(instancetype)init:(NSString*)name weather:(NSString*)weather temp:(NSString*)temp;
 

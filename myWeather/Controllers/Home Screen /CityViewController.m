@@ -11,6 +11,7 @@
 #import "DataViewController.h"
 #import "City.h"
 #import "CityStore.h"
+#import "HelpViewController.h"
 
 static NSString* const networkServiceBackBase = @"networkServiceBackBase";
 
@@ -92,6 +93,20 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
             [self.weatherService makeGetRequestWithPt:coords withIdentifier:networkServiceBackBase];
         }
     }
+}
+
+- (IBAction)showHelp:(id)sender {
+
+    HelpViewController *vc = (HelpViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"HelpViewController"];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    [self.view.window.layer addAnimation:transition forKey:nil];
+    
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 #pragma mark - networkServices

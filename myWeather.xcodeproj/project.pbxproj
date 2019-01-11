@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		55024B2D21E70F84002E5C13 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B2C21E70F84002E5C13 /* MapAnnotation.m */; };
 		55024B3821E7203A002E5C13 /* NetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B3721E7203A002E5C13 /* NetworkService.m */; };
 		55024B3C21E79C74002E5C13 /* WeatherService.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B3B21E79C74002E5C13 /* WeatherService.m */; };
+		55024B4221E958BB002E5C13 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B4121E958BB002E5C13 /* HelpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		55024B3A21E79C74002E5C13 /* WeatherService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherService.h; sourceTree = "<group>"; };
 		55024B3B21E79C74002E5C13 /* WeatherService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherService.m; sourceTree = "<group>"; };
 		55024B3F21E8283B002E5C13 /* myWeatherConsts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myWeatherConsts.h; sourceTree = "<group>"; };
+		55024B4021E958BB002E5C13 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		55024B4121E958BB002E5C13 /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 				55024AF521E685FD002E5C13 /* RootViewController.m */,
 				55024AFA21E685FD002E5C13 /* ModelController.h */,
 				55024AFB21E685FD002E5C13 /* ModelController.m */,
+				55024B4021E958BB002E5C13 /* HelpViewController.h */,
+				55024B4121E958BB002E5C13 /* HelpViewController.m */,
 			);
 			path = "original unused";
 			sourceTree = "<group>";
@@ -233,11 +238,12 @@
 				TargetAttributes = {
 					55024AED21E685FD002E5C13 = {
 						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = 55024AE921E685FD002E5C13 /* Build configuration list for PBXProject "myWeather" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -279,6 +285,7 @@
 				55024B0F21E68E37002E5C13 /* City.m in Sources */,
 				55024B3C21E79C74002E5C13 /* WeatherService.m in Sources */,
 				55024AFC21E685FD002E5C13 /* ModelController.m in Sources */,
+				55024B4221E958BB002E5C13 /* HelpViewController.m in Sources */,
 				55024AF921E685FD002E5C13 /* DataViewController.m in Sources */,
 				55024B1B21E69EFC002E5C13 /* CityViewController.m in Sources */,
 				55024B1E21E6A57A002E5C13 /* CityStore.m in Sources */,
@@ -363,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -416,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -431,11 +438,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R638X58M4R;
 				INFOPLIST_FILE = myWeather/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fiat.myWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -449,11 +453,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R638X58M4R;
 				INFOPLIST_FILE = myWeather/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fiat.myWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

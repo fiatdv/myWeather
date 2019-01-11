@@ -10,6 +10,8 @@
 #import "City.h"
 #import "CityViewController.h"
 
+static const CGFloat viewHeight = 350;
+
 @interface DataViewController ()
 
 @end
@@ -19,8 +21,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [_scrollView setScrollEnabled:YES];
+    [self setScrollContentSize];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceDidRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
+- (void)deviceDidRotate:(NSNotification *)notification
+{
+    [self setScrollContentSize];
+}
+
+- (void)setScrollContentSize {
+    
+    CGRect rec = _scrollContentView.frame;
+    rec.size.height = viewHeight;
+    _scrollContentView.frame = rec;
+    _scrollView.contentSize = rec.size;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
 
@@ -35,6 +53,11 @@
 
     if(_city.getWeatherIcon)
         self.weatherIcon.image  = _city.getWeatherIcon;
+    
+    self.rainChanceLabel.text = _city.rainChance;
+    self.humidityLabel.text = _city.humidity;
+    self.windLabel.text = _city.wind;
+    self.precipitationLabel.text = _city.windDirection;
 }
 
 - (IBAction)showCities:(id)sender {
