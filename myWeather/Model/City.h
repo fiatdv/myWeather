@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) NSNumber* latitude;
 @property(nonatomic, strong) NSNumber* longitude;
 @property(nonatomic, strong) NSDictionary* store;
+@property(nonatomic, strong) UIImage* icon;
 
 -(instancetype)init:(NSString*)name weather:(NSString*)weather temp:(NSString*)temp;
 
@@ -28,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(BOOL) hasCoords;
 -(CLLocationCoordinate2D) getCoords;
+
+-(NSString*) getWeatherIconName;
+-(UIImage*) getWeatherIcon;
+-(void) setWeatherIcon:(UIImage*)image;
 
 @end
 

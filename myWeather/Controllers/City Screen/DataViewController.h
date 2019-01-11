@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weatherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherIcon;
 @property (weak, nonatomic) id dataObject;
 @property (strong, nonatomic) City* city;
 @property (strong, nonatomic) NSNumber* dataIndex;

@@ -30,8 +30,11 @@
         _city = _dataObject;
 
     self.cityLabel.text = _city.name;
-    self.weatherLabel.text = _city.currWeather;
+    self.weatherLabel.text = [_city.currWeather capitalizedString];
     self.temperatureLabel.text = _city.currTemp;
+
+    if(_city.getWeatherIcon)
+        self.weatherIcon.image  = _city.getWeatherIcon;
 }
 
 - (IBAction)showCities:(id)sender {

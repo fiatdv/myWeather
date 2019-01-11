@@ -102,4 +102,32 @@
     return CLLocationCoordinate2DMake(lat.doubleValue,lon.doubleValue);
 }
 
+-(NSString*) getWeatherIconName {
+    
+    if(!_store)
+        return nil;
+    
+    NSArray* wArray = _store[@"weather"];
+    if(!wArray || wArray.count == 0)
+        return nil;
+
+    NSDictionary* weather = wArray.firstObject;
+    if(!weather || !weather[@"icon"])
+        return nil;
+
+    NSString* icon = weather[@"icon"];
+    if(!icon || icon.length == 0)
+        return nil;
+    
+    return icon;
+}
+
+-(UIImage*) getWeatherIcon {
+    return _icon;
+}
+
+-(void) setWeatherIcon:(UIImage*)image {
+    _icon = image;
+}
+
 @end

@@ -44,28 +44,27 @@
     if(!city)
         return;
 
-    NSArray* wArray = city.store[@"weather"];
-    if(!wArray || wArray.count == 0)
+    UIImage* image = [city getWeatherIcon];
+    if(image) {
+        [self.weatherImage setImage:image];
+        return;
+    }
+    
+    
+    NSString* iconName = [city getWeatherIconName];
+    if(!iconName)
         return;
     
-    NSDictionary* weather = wArray.firstObject;
-    if(!weather || !weather[@"icon"])
-        return;
-    
-    NSString* icon = weather[@"icon"];
-    if(!icon || icon.length == 0)
-        return;
-    
-    //NSLog(@"icon: %@",icon);
-    
-    NSString* urlStr = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",icon];
+    NSString* urlStr = [NSString stringWithFormat:@"http://openweathermap.org/img/w/%@.png",iconName];
     
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:urlStr]];
         if ( data == nil )
             return;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.weatherImage setImage:[UIImage imageWithData:data]];
+            UIImage* image = [UIImage imageWithData:data];
+            [city setWeatherIcon:image];
+            [self.weatherImage setImage:image];
             [self setNeedsDisplay];
         });
     });
