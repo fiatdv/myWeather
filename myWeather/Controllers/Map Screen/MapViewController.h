@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet OriginMapView *map;
 @property (strong, nonatomic) WeatherService *weatherService;
+@property (weak, nonatomic) IBOutlet UIButton *closeButton;
 
 @end
 

@@ -84,14 +84,14 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="X">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="closeWindow:" destination="S4R-Ja-viH" eventType="touchUpInside" id="gsI-YG-uhc"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.74228340390000003" green="0.8974176049" blue="0.98292082550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="xeS-ia-xAm" firstAttribute="top" secondItem="cF2-Le-7mQ" secondAttribute="bottom" constant="16" id="1Pm-sv-bxE"/>
                                     <constraint firstAttribute="trailing" secondItem="omD-zh-NMW" secondAttribute="trailing" constant="12" id="1xI-ad-W2Y"/>
@@ -110,7 +110,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.74228340390000003" green="0.8974176049" blue="0.98292082550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="s1b-V9-EN7" secondAttribute="trailing" constant="20" symbolic="YES" id="333-Jl-G0r"/>
                             <constraint firstItem="s1b-V9-EN7" firstAttribute="leading" secondItem="ZwX-cT-FIQ" secondAttribute="leading" constant="20" symbolic="YES" id="CIC-qa-9gW"/>
@@ -142,7 +142,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6je-5l-C2X" customClass="CityTable">
                                 <rect key="frame" x="20" y="44" width="374" height="751"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.74228340390000003" green="0.8974176049" blue="0.98292082550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityTableViewCell" rowHeight="60" id="lk7-cf-1h9" customClass="CityTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="374" height="60"/>
@@ -179,6 +179,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tkE-5N-HZA" secondAttribute="bottom" constant="9" id="0vf-fC-4ci"/>
                                                 <constraint firstItem="tkE-5N-HZA" firstAttribute="leading" secondItem="3Wl-Em-UGG" secondAttribute="trailing" constant="2" id="6Ue-ph-POP"/>
@@ -195,6 +196,7 @@
                                                 <constraint firstItem="xlJ-7f-uSW" firstAttribute="leading" secondItem="d8U-Z7-u1M" secondAttribute="leading" constant="1" id="q1d-za-FfW"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cityLabel" destination="ePp-RE-Hka" id="kp9-gI-4Ic"/>
                                             <outlet property="temperatureLabel" destination="3Wl-Em-UGG" id="rPF-pg-JNl"/>
@@ -209,8 +211,10 @@
                                     <constraint firstAttribute="width" constant="40" id="WyY-Xo-mbj"/>
                                     <constraint firstAttribute="height" constant="40" id="sYU-Ku-Izj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="+"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="addCity:" destination="xMD-wp-fpb" eventType="touchUpInside" id="xNo-PO-qR3"/>
                                 </connections>
@@ -224,7 +228,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.74228340390000003" green="0.8974176049" blue="0.98292082550000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="6yY-sf-reS" secondAttribute="trailing" constant="12" id="BMZ-y6-sa2"/>
                             <constraint firstItem="jNX-6p-aX2" firstAttribute="leading" secondItem="B66-zL-tZ4" secondAttribute="leadingMargin" id="HVs-NN-BbY"/>
@@ -268,14 +272,16 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="TYh-xI-KTD"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fPp-K7-aBr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="X"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="closeWindow:" destination="S1x-qa-J1K" eventType="touchUpInside" id="KVL-MI-uKn"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.7422834038734436" green="0.89741760492324829" blue="0.98292082548141479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Yx0-Ly-2Od" secondAttribute="trailing" constant="12" id="DQH-lS-eYK"/>
                             <constraint firstItem="RDe-Us-8gK" firstAttribute="top" secondItem="c7k-I7-hj7" secondAttribute="topMargin" id="GfD-eU-31e"/>
@@ -286,12 +292,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="Yx0-Ly-2Od" id="g9h-RP-lyB"/>
                         <outlet property="map" destination="RDe-Us-8gK" id="nw3-GY-p2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSa-lT-nmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2034.4000000000001" y="-238.83058470764618"/>
+            <point key="canvasLocation" x="1323" y="491"/>
         </scene>
     </scenes>
 </document>

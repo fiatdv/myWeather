@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "myWeatherConsts.h"
 #import "CityStore.h"
+#import "CityViewController.h"
+#import "MapViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,9 +21,35 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[CityStore shared] loadStore];
+
+    if([CityStore shared].count == 0)
+        [self showMapScreen];
+//    else
+//        [self showHomeScreen];
+    
     return YES;
 }
 
+-(void) showHomeScreen {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CityViewController *vc = (CityViewController*) [storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
+    
+    [self.window makeKeyAndVisible];
+    
+    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+}
+
+-(void) showMapScreen {
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController *vc = (MapViewController*) [storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    
+    [self.window makeKeyAndVisible];
+    
+    [self.window.rootViewController presentViewController:vc animated:NO completion:nil];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -52,6 +80,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[CityStore shared] saveStore];
 }
 
 

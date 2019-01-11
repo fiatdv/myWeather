@@ -41,7 +41,7 @@ static NSString* const kCityStoreNSUserDefaults = @"kCityStoreNSUserDefaults";
 
     [self add:city1];
     [self add:city2];
-//    [self add:city3];
+    [self add:city3];
 }
 
 -(void) add:(City*)city {

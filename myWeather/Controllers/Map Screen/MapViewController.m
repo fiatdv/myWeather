@@ -15,7 +15,6 @@
 static NSString* const networkServiceFindTap = @"networkServiceFindTap";
 
 @interface MapViewController ()
-
 @end
 
 @implementation MapViewController
@@ -23,7 +22,11 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self loadBackBase];
+    if([CityStore shared].count == 0) {
+        [_closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_closeButton setEnabled:NO];
+    }
+    //[self loadBackBase];
     
     //NSString* fromCity = @"Atlanta";
     //NSString* fromState = @"GA";
@@ -45,8 +48,8 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
     NSString* aTitle = @"BackBase";
     [_map addOriginAnnotation:aTitle];
     
-    NSString* latD = @"0.1";
-    NSString* lonD = @"0.1";
+    NSString* latD = @"30.0";
+    NSString* lonD = @"30.0";
     [_map setRegion:MKCoordinateRegionMake(_map.centerCoordinate, MKCoordinateSpanMake(latD.floatValue, lonD.floatValue))];
 
 }
@@ -59,6 +62,9 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
     point1.coordinate = tapPoint;
     [_map addAnnotation:point1];
     
+    [_closeButton setEnabled:YES];
+    [_closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
     [self.weatherService makeGetRequestWithPt:tapPoint withIdentifier:networkServiceFindTap];
 
     // Show Busy Dialog... interrupt main ui
@@ -100,7 +106,10 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
 
 -(void) dismissViewController {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
+    });
 }
 
 - (IBAction)closeWindow:(id)sender {
@@ -137,10 +146,6 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
                         
                         City* city = [[City alloc] initWithDict:results];
                         [[CityStore shared] add:city];
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [self dismissViewController];
-                            [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
-                        });
                     }
                 }
             }

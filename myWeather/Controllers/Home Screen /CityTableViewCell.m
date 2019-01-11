@@ -27,10 +27,10 @@
     if(!city)
         return;
     
-    if(row % 2 == 0)
-        self.backgroundColor = [UIColor whiteColor];
+    if(row % 2 != 0)
+        self.backgroundColor = [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:.33];
     else {
-        self.backgroundColor = [UIColor colorWithRed:230/255.0f green:230/255.0f blue:230/255.0f alpha:.87];
+        self.backgroundColor = [UIColor colorWithRed:189/255.0f green:229/255.0f blue:251/255.0f alpha:1];
     }
 
     self.cityLabel.text = city.name;

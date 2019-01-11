@@ -23,20 +23,23 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self getWeatherAtBackBase];
-    
+    //[self getWeatherAtBackBase];
+    [self refreshCityStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewCity:) name:kViewCity object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:applicationWillEnterForeground object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCityStore) name:applicationWillEnterForeground object:nil];
 }
 
 -(void) getWeatherAtBackBase {
     
-    NSString* lat = @"33.781840";
-    NSString* lon = @"-84.387380";
-    CLLocationCoordinate2D bb = CLLocationCoordinate2DMake(lat.doubleValue,lon.doubleValue);
+    NSNumber* lat = @(33.781840);
+    NSNumber* lon = @(-84.387380);
     
-    [self.weatherService makeGetRequestWithPt:bb withIdentifier:networkServiceBackBase];
+    City* atl = [[City alloc] init:@"BackBase" lat:lat lon:lon];
+    [[CityStore shared] add:atl];
+
+//    CLLocationCoordinate2D bb = CLLocationCoordinate2DMake(lat.doubleValue,lon.doubleValue);
+//    [self.weatherService makeGetRequestWithPt:bb withIdentifier:networkServiceBackBase];
 }
 
 - (IBAction)closeWindow:(id)sender {
@@ -80,7 +83,7 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
     [self presentViewController:vc animated:NO completion:nil];
 }
 
--(void) applicationWillEnterForeground {
+-(void) refreshCityStore {
 
     for(int i = 0 ; i < [[CityStore shared] count]; i++) {
         City* city = [[CityStore shared] objectAtIndex:i];
