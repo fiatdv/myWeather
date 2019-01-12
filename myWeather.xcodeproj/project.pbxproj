@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55024AF321E685FD002E5C13 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024AF221E685FD002E5C13 /* AppDelegate.m */; };
-		55024AF621E685FD002E5C13 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024AF521E685FD002E5C13 /* RootViewController.m */; };
-		55024AF921E685FD002E5C13 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024AF821E685FD002E5C13 /* DataViewController.m */; };
-		55024AFC21E685FD002E5C13 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024AFB21E685FD002E5C13 /* ModelController.m */; };
+		55024AF921E685FD002E5C13 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024AF821E685FD002E5C13 /* CityViewController.m */; };
 		55024AFF21E685FD002E5C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55024AFD21E685FD002E5C13 /* Main.storyboard */; };
 		55024B0121E685FF002E5C13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55024B0021E685FF002E5C13 /* Assets.xcassets */; };
 		55024B0421E685FF002E5C13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55024B0221E685FF002E5C13 /* LaunchScreen.storyboard */; };
@@ -18,7 +16,7 @@
 		55024B0F21E68E37002E5C13 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B0E21E68E37002E5C13 /* City.m */; };
 		55024B1221E6985B002E5C13 /* CityTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1121E6985B002E5C13 /* CityTable.m */; };
 		55024B1521E6987A002E5C13 /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1421E6987A002E5C13 /* CityTableViewCell.m */; };
-		55024B1B21E69EFC002E5C13 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1A21E69EFC002E5C13 /* CityViewController.m */; };
+		55024B1B21E69EFC002E5C13 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1A21E69EFC002E5C13 /* HomeViewController.m */; };
 		55024B1E21E6A57A002E5C13 /* CityStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B1D21E6A57A002E5C13 /* CityStore.m */; };
 		55024B2421E70C13002E5C13 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55024B2221E70C13002E5C13 /* MapViewController.m */; };
 		55024B2721E70CE3002E5C13 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55024B2621E70CE3002E5C13 /* MapKit.framework */; };
@@ -33,12 +31,8 @@
 		55024AEE21E685FD002E5C13 /* myWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55024AF121E685FD002E5C13 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		55024AF221E685FD002E5C13 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		55024AF421E685FD002E5C13 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		55024AF521E685FD002E5C13 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		55024AF721E685FD002E5C13 /* DataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
-		55024AF821E685FD002E5C13 /* DataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
-		55024AFA21E685FD002E5C13 /* ModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
-		55024AFB21E685FD002E5C13 /* ModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		55024AF721E685FD002E5C13 /* CityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		55024AF821E685FD002E5C13 /* CityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		55024AFE21E685FD002E5C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55024B0021E685FF002E5C13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55024B0321E685FF002E5C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,8 +44,8 @@
 		55024B1121E6985B002E5C13 /* CityTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityTable.m; sourceTree = "<group>"; };
 		55024B1321E6987A002E5C13 /* CityTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
 		55024B1421E6987A002E5C13 /* CityTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityTableViewCell.m; sourceTree = "<group>"; };
-		55024B1921E69EFC002E5C13 /* CityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
-		55024B1A21E69EFC002E5C13 /* CityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		55024B1921E69EFC002E5C13 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		55024B1A21E69EFC002E5C13 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		55024B1C21E6A57A002E5C13 /* CityStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityStore.h; sourceTree = "<group>"; };
 		55024B1D21E6A57A002E5C13 /* CityStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityStore.m; sourceTree = "<group>"; };
 		55024B2221E70C13002E5C13 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -141,8 +135,8 @@
 		55024B2F21E71E97002E5C13 /* Home Screen  */ = {
 			isa = PBXGroup;
 			children = (
-				55024B1921E69EFC002E5C13 /* CityViewController.h */,
-				55024B1A21E69EFC002E5C13 /* CityViewController.m */,
+				55024B1921E69EFC002E5C13 /* HomeViewController.h */,
+				55024B1A21E69EFC002E5C13 /* HomeViewController.m */,
 				55024B1021E6985B002E5C13 /* CityTable.h */,
 				55024B1121E6985B002E5C13 /* CityTable.m */,
 				55024B1321E6987A002E5C13 /* CityTableViewCell.h */,
@@ -168,7 +162,7 @@
 				55024B2F21E71E97002E5C13 /* Home Screen  */,
 				55024B2E21E71E84002E5C13 /* Map Screen */,
 				55024B3E21E80942002E5C13 /* City Screen */,
-				55024B3D21E8092A002E5C13 /* original unused */,
+				55024B3D21E8092A002E5C13 /* Help Screen */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,24 +179,20 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		55024B3D21E8092A002E5C13 /* original unused */ = {
+		55024B3D21E8092A002E5C13 /* Help Screen */ = {
 			isa = PBXGroup;
 			children = (
-				55024AF421E685FD002E5C13 /* RootViewController.h */,
-				55024AF521E685FD002E5C13 /* RootViewController.m */,
-				55024AFA21E685FD002E5C13 /* ModelController.h */,
-				55024AFB21E685FD002E5C13 /* ModelController.m */,
 				55024B4021E958BB002E5C13 /* HelpViewController.h */,
 				55024B4121E958BB002E5C13 /* HelpViewController.m */,
 			);
-			path = "original unused";
+			path = "Help Screen";
 			sourceTree = "<group>";
 		};
 		55024B3E21E80942002E5C13 /* City Screen */ = {
 			isa = PBXGroup;
 			children = (
-				55024AF721E685FD002E5C13 /* DataViewController.h */,
-				55024AF821E685FD002E5C13 /* DataViewController.m */,
+				55024AF721E685FD002E5C13 /* CityViewController.h */,
+				55024AF821E685FD002E5C13 /* CityViewController.m */,
 			);
 			path = "City Screen";
 			sourceTree = "<group>";
@@ -280,14 +270,12 @@
 			files = (
 				55024B0721E685FF002E5C13 /* main.m in Sources */,
 				55024B2D21E70F84002E5C13 /* MapAnnotation.m in Sources */,
-				55024AF621E685FD002E5C13 /* RootViewController.m in Sources */,
 				55024B1521E6987A002E5C13 /* CityTableViewCell.m in Sources */,
 				55024B0F21E68E37002E5C13 /* City.m in Sources */,
 				55024B3C21E79C74002E5C13 /* WeatherService.m in Sources */,
-				55024AFC21E685FD002E5C13 /* ModelController.m in Sources */,
 				55024B4221E958BB002E5C13 /* HelpViewController.m in Sources */,
-				55024AF921E685FD002E5C13 /* DataViewController.m in Sources */,
-				55024B1B21E69EFC002E5C13 /* CityViewController.m in Sources */,
+				55024AF921E685FD002E5C13 /* CityViewController.m in Sources */,
+				55024B1B21E69EFC002E5C13 /* HomeViewController.m in Sources */,
 				55024B1E21E6A57A002E5C13 /* CityStore.m in Sources */,
 				55024B1221E6985B002E5C13 /* CityTable.m in Sources */,
 				55024AF321E685FD002E5C13 /* AppDelegate.m in Sources */,

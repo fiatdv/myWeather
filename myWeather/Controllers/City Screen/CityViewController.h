@@ -10,7 +10,7 @@
 
 @class City;
 
-@interface DataViewController : UIViewController
+@interface CityViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weatherLabel;

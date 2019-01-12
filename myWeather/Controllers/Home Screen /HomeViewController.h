@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 static NSString* const kViewCity = @"kViewCity";
 
-@interface CityViewController : UIViewController <NetworkServiceDelegate>
+@interface HomeViewController : UIViewController <NetworkServiceDelegate>
 
 @property (weak, nonatomic) IBOutlet CityTable *cityTable;
 

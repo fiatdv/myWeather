@@ -10,7 +10,7 @@
 #import "City.h"
 #import "CityTableViewCell.h"
 #import "CityStore.h"
-#import "CityViewController.h"
+#import "HomeViewController.h"
 
 static NSString* const cellId = @"CityTableViewCell";
 

@@ -6,20 +6,20 @@
 //  Copyright © 2019 Felipe. All rights reserved.
 //
 
-#import "CityViewController.h"
+#import "HomeViewController.h"
 #import "MapViewController.h"
-#import "DataViewController.h"
+#import "CityViewController.h"
 #import "City.h"
 #import "CityStore.h"
 #import "HelpViewController.h"
 
 static NSString* const networkServiceBackBase = @"networkServiceBackBase";
 
-@interface CityViewController ()
+@interface HomeViewController ()
 
 @end
 
-@implementation CityViewController
+@implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,7 +70,7 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
         city = dict[@"city"];
     }
     
-    DataViewController *vc = (DataViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
+    CityViewController *vc = (CityViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
     
     vc.city = city;
     

@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "myWeatherConsts.h"
 #import "CityStore.h"
-#import "CityViewController.h"
+#import "HomeViewController.h"
 #import "MapViewController.h"
 
 @interface AppDelegate ()
@@ -34,7 +34,7 @@
 -(void) showHomeScreen {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    CityViewController *vc = (CityViewController*) [storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
+    HomeViewController *vc = (HomeViewController*) [storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
     
     [self.window makeKeyAndVisible];
     

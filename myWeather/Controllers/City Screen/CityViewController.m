@@ -6,38 +6,18 @@
 //  Copyright © 2019 Felipe. All rights reserved.
 //
 
-#import "DataViewController.h"
-#import "City.h"
 #import "CityViewController.h"
+#import "City.h"
+#import "HomeViewController.h"
 
-static const CGFloat viewHeight = 350;
-
-@interface DataViewController ()
+@interface CityViewController ()
 
 @end
 
-@implementation DataViewController
+@implementation CityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [_scrollView setScrollEnabled:YES];
-    [self setScrollContentSize];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceDidRotate:) name:UIDeviceOrientationDidChangeNotification object:nil];
-}
-
-- (void)deviceDidRotate:(NSNotification *)notification
-{
-    [self setScrollContentSize];
-}
-
-- (void)setScrollContentSize {
-    
-    CGRect rec = _scrollContentView.frame;
-    rec.size.height = viewHeight;
-    _scrollContentView.frame = rec;
-    _scrollView.contentSize = rec.size;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,7 +42,7 @@ static const CGFloat viewHeight = 350;
 
 - (IBAction)showCities:(id)sender {
 
-    CityViewController *vc = (CityViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
+    HomeViewController *vc = (HomeViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
     
     CATransition *transition = [CATransition animation];
     transition.duration = 0.3;

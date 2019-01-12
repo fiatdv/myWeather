@@ -18,9 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"help" ofType:@"html" inDirectory:@"help"];
-    NSData *htmlData = [NSData dataWithContentsOfFile:htmlFile];
-    [_helpView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:[NSURL URLWithString:@""]];
+    NSURL* url = [NSURL URLWithString:@"https://docs.google.com/document/d/e/2PACX-1vSUQ0TJBp9AkfluVKOCW3Lm2QpQyg2omdgVTMGBR4M9G0SJhZy0kqQA_tjQqUsgYfIs7jYCYdo5Dj71/pub"];
+
+    [_helpView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (IBAction)closeWindow:(id)sender {
