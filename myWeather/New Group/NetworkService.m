@@ -15,7 +15,7 @@ static BOOL sNetworkError = NO;
 
 #pragma mark Network Requests
 
-- (void)makeGetRequestTo:(NSURL *)url withIdentifier:(NSString *)identifier withKey:(NSString *)key {
+- (void)makeGetRequestTo:(NSURL *)url withIdentifier:(NSString *)identifier withKey:(NSString *)key userInfo:(id)userInfo {
     
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -43,7 +43,7 @@ static BOOL sNetworkError = NO;
         dispatch_async(dispatch_get_main_queue(), ^{
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         });
-        [self.delegate networkServiceDelegate:self didFinishRequestWithIdentifier:identifier data:data andError:error];
+        [self.delegate networkServiceDelegate:self didFinishRequestWithIdentifier:identifier data:data andError:error userInfo:(id)userInfo];
     }];
     
     [task resume];

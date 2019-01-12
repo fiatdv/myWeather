@@ -90,7 +90,7 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
         City* city = [[CityStore shared] objectAtIndex:i];
         if(city && city.hasCoords) {
             CLLocationCoordinate2D coords = [city getCoords];
-            [self.weatherService makeGetRequestWithPt:coords withIdentifier:networkServiceBackBase];
+            [self.weatherService makeGetRequestWithPt:coords withIdentifier:networkServiceBackBase userInfo:self];
         }
     }
 }
@@ -122,7 +122,7 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
     return _weatherService;
 }
 
-- (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error {
+- (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error userInfo:(id)userInfo {
     
     if (!error) {
         NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];

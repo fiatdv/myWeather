@@ -15,6 +15,8 @@
 static NSString* const networkServiceFindTap = @"networkServiceFindTap";
 
 @interface MapViewController ()
+@property (weak, nonatomic) IBOutlet UIView *tapNote;
+@property (weak, nonatomic) IBOutlet UIView *closeNote;
 @end
 
 @implementation MapViewController
@@ -25,6 +27,8 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
     if([CityStore shared].count == 0) {
         [_closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_closeButton setEnabled:NO];
+        
+        [_tapNote setHidden:NO];
     }
     //[self loadBackBase];
     
@@ -56,6 +60,13 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
 
 -(void)foundTap:(UITapGestureRecognizer *)recognizer
 {
+    [_tapNote setHidden:YES];
+    
+    if([CityStore shared].count == 0)
+        [_closeNote setHidden:NO];
+    else
+        [_closeNote setHidden:YES];
+
     CGPoint point = [recognizer locationInView:_map];
     CLLocationCoordinate2D tapPoint = [_map convertPoint:point toCoordinateFromView:_map];
     MKPointAnnotation *point1 = [[MKPointAnnotation alloc] init];
@@ -65,14 +76,7 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
     [_closeButton setEnabled:YES];
     [_closeButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 
-    [self.weatherService makeGetRequestWithPt:tapPoint withIdentifier:networkServiceFindTap];
-
-    // Show Busy Dialog... interrupt main ui
-    
-//    NSArray* ann = [_map annotations];
-//    for(MKPointAnnotation* an in ann) {
-//        NSLog(@"%@",an);
-//    }
+    [self.weatherService makeGetRequestWithPt:tapPoint withIdentifier:networkServiceFindTap userInfo:point1];
 }
 
 - (void)reloadMapWithCity:(NSString*)fromCity andState:(NSString*)fromState {
@@ -130,7 +134,7 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
     return _weatherService;
 }
 
-- (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error {
+- (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error userInfo:(id)userInfo {
     
     if (!error) {
         NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
@@ -142,10 +146,17 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
                     NSLog(@"Network Error Received: %@",results);
                 else if(code.integerValue == 200) {
                     
-                    if([identifier isEqualToString:networkServiceFindTap]) {
+                    if([identifier hasPrefix:networkServiceFindTap]) {
                         
                         City* city = [[City alloc] initWithDict:results];
                         [[CityStore shared] add:city];
+
+                        NSString* title = [NSString stringWithFormat:@"%@:%@",city.name,city.currTemp];
+                        [userInfo setTitle:title];
+                        
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [self.map setNeedsDisplay];
+//                        });
                     }
                 }
             }

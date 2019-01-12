@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WeatherService : NetworkService
 
-- (void)makeGetRequestWithPt:(CLLocationCoordinate2D)pt withIdentifier:(NSString *)identifier;
+- (void)makeGetRequestWithPt:(CLLocationCoordinate2D)pt withIdentifier:(NSString *)identifier userInfo:(id)userInfo;
 
 - (NSURL*) URLForPoint:(CLLocationCoordinate2D)pt;
 

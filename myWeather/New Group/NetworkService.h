@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol NetworkServiceDelegate <NSObject>
 
-- (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error;
+- (void)networkServiceDelegate:(NetworkService *)delegate didFinishRequestWithIdentifier:(NSString *)identifier data:(NSData *)data andError:(NSError *)error userInfo:(id)userInfo;
 
 @end
 
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<NetworkServiceDelegate>delegate;
 
-- (void)makeGetRequestTo:(NSURL *)url withIdentifier:(NSString *)identifier withKey:(NSString *)key;
+- (void)makeGetRequestTo:(NSURL *)url withIdentifier:(NSString *)identifier withKey:(NSString *)key userInfo:(id)userInfo;
 
 @end
 

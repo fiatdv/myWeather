@@ -25,11 +25,11 @@ static NSString* const apiKey = @"a4ae2495b1086cf372587e0c51e507df";
     return url;
 }
 
-- (void)makeGetRequestWithPt:(CLLocationCoordinate2D)pt withIdentifier:(NSString *)identifier {
+- (void)makeGetRequestWithPt:(CLLocationCoordinate2D)pt withIdentifier:(NSString *)identifier userInfo:(id)userInfo {
 
     NSURL* url = [self URLForPoint:pt];
     
-    [self makeGetRequestTo:url withIdentifier:identifier withKey:apiKey];
+    [self makeGetRequestTo:url withIdentifier:identifier withKey:apiKey userInfo:userInfo];
 }
 
 @end
