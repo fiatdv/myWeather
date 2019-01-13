@@ -12,7 +12,7 @@
         <!--City View Controller-->
         <scene sceneID="snT-py-3hH">
             <objects>
-                <viewController storyboardIdentifier="DataViewController" id="S4R-Ja-viH" customClass="CityViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityViewController" id="S4R-Ja-viH" customClass="CityViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E09-ri-I74"/>
                         <viewControllerLayoutGuide type="bottom" id="JSf-6P-nFC"/>
@@ -243,7 +243,7 @@
         <!--Home View Controller-->
         <scene sceneID="zj5-vh-6SB">
             <objects>
-                <viewController storyboardIdentifier="CityViewController" id="xMD-wp-fpb" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="xMD-wp-fpb" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WQx-SY-vEg"/>
                         <viewControllerLayoutGuide type="bottom" id="m5b-xp-CVu"/>
@@ -263,14 +263,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liq-Uv-Cma">
-                                <rect key="frame" x="32" y="822" width="40" height="40"/>
+                                <rect key="frame" x="32" y="822" width="80" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="Ocx-it-lTs"/>
+                                    <constraint firstAttribute="width" constant="80" id="Ocx-it-lTs"/>
                                     <constraint firstAttribute="height" constant="40" id="Q4q-43-6wr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
-                                <state key="normal" title="?">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="HELP">
+                                    <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="showHelp:" destination="xMD-wp-fpb" eventType="touchUpInside" id="N1e-Pl-noY"/>

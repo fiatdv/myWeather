@@ -55,7 +55,6 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
     NSString* latD = @"30.0";
     NSString* lonD = @"30.0";
     [_map setRegion:MKCoordinateRegionMake(_map.centerCoordinate, MKCoordinateSpanMake(latD.floatValue, lonD.floatValue))];
-
 }
 
 -(void)foundTap:(UITapGestureRecognizer *)recognizer
@@ -112,7 +111,7 @@ static NSString* const networkServiceFindTap = @"networkServiceFindTap";
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self dismissViewControllerAnimated:YES completion:nil];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshCityTable object:nil];
     });
 }
 

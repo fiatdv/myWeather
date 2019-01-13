@@ -13,9 +13,12 @@
 #import "CityStore.h"
 #import "HelpViewController.h"
 
-static NSString* const networkServiceBackBase = @"networkServiceBackBase";
+static NSString* const kRefreshCityStore = @"kRefreshCityStore";
+static NSString* const kRefreshCity = @"kRefreshCity";
 
 @interface HomeViewController ()
+
+@property (strong, nonatomic) NSTimer* timer;
 
 @end
 
@@ -23,12 +26,51 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     //[self getWeatherAtBackBase];
     [self refreshCityStore];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewCity:) name:kViewCity object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCityStore) name:applicationWillEnterForeground object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterForekground) name:kApplicationWillEnterForeground object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didEnterBackground) name:kApplicationWillEnterBackground object:nil];
+
+    [self setupTimer];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setupTimer];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self releaseTimer];
+}
+
+-(void)didEnterForekground {
+    [self refreshCityStore];
+    [self setupTimer];
+}
+
+-(void)didEnterBackground {
+    [self releaseTimer];
+}
+
+-(void) setupTimer {
+    
+    if(!_timer) {
+        
+        _timer = [NSTimer timerWithTimeInterval:30 target:self selector:@selector(refreshCityStore) userInfo:nil repeats:YES];
+    
+        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+}
+
+-(void) releaseTimer {
+    
+    [_timer invalidate];
+    _timer = nil;
 }
 
 -(void) getWeatherAtBackBase {
@@ -66,12 +108,12 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
 
     City* city = nil;
     NSDictionary* dict = notification.userInfo;
-    if(dict) {
+    if(dict && dict[@"city"])
         city = dict[@"city"];
-    }
+    if(!city)
+        return;
     
-    CityViewController *vc = (CityViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
-    
+    CityViewController *vc = (CityViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
     vc.city = city;
     
     CATransition *transition = [CATransition animation];
@@ -85,13 +127,21 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
 }
 
 -(void) refreshCityStore {
-
+    
     for(int i = 0 ; i < [[CityStore shared] count]; i++) {
         City* city = [[CityStore shared] objectAtIndex:i];
         if(city && city.hasCoords) {
             CLLocationCoordinate2D coords = [city getCoords];
-            [self.weatherService makeGetRequestWithPt:coords withIdentifier:networkServiceBackBase userInfo:self];
+            [self.weatherService makeGetRequestWithPt:coords withIdentifier:kRefreshCityStore userInfo:self];
         }
+    }
+}
+
+-(void) refreshCity:(City*)city {
+    
+    if(city && city.hasCoords) {
+        CLLocationCoordinate2D coords = [city getCoords];
+        [self.weatherService makeGetRequestWithPt:coords withIdentifier:kRefreshCity userInfo:self];
     }
 }
 
@@ -134,11 +184,14 @@ static NSString* const networkServiceBackBase = @"networkServiceBackBase";
                     NSLog(@"Network Error Received: %@",results);
                 else if(code.integerValue == 200) {
                     
-                    if([identifier isEqualToString:networkServiceBackBase]) {
+                    if([identifier hasPrefix:kRefreshCity]) {
                         
                         City* city = [[City alloc] initWithDict:results];
                         [[CityStore shared] add:city];
-                        [[NSNotificationCenter defaultCenter] postNotificationName:kCityStoreUpdate object:nil];
+                        
+                        if([identifier hasPrefix:kRefreshCity]) {
+                            [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshCityTable object:nil];
+                        }
                     }
                 }
             }

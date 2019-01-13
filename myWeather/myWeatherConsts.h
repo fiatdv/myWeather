@@ -10,8 +10,9 @@
 #define myWeatherConsts_h
 
 // refresh CityStore when app returns to foreground
-static NSString* const applicationWillEnterForeground = @"applicationWillEnterForeground";
+static NSString* const kApplicationWillEnterForeground = @"applicationWillEnterForeground";
+static NSString* const kApplicationWillEnterBackground = @"kApplicationWillEnterBackground";
 
-static NSString* const kCityStoreUpdate = @"CityStoreUpdate";
+static NSString* const kRefreshCityTable = @"kRefreshCityTable";
 
 #endif /* myWeatherConsts_h */

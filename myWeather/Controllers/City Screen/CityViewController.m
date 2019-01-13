@@ -1,5 +1,5 @@
 //
-//  DataViewController.m
+//  CityViewController.m
 //  myWeather
 //
 //  Created by Felipe on 1/9/19.
@@ -42,7 +42,7 @@
 
 - (IBAction)showCities:(id)sender {
 
-    HomeViewController *vc = (HomeViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
+    HomeViewController *vc = (HomeViewController*) [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     
     CATransition *transition = [CATransition animation];
     transition.duration = 0.3;

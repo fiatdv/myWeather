@@ -34,7 +34,7 @@
 -(void) showHomeScreen {
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    HomeViewController *vc = (HomeViewController*) [storyboard instantiateViewControllerWithIdentifier:@"CityViewController"];
+    HomeViewController *vc = (HomeViewController*) [storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
     
     [self.window makeKeyAndVisible];
     
@@ -61,6 +61,8 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [[CityStore shared] saveStore];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationWillEnterBackground object:nil];
 }
 
 
@@ -69,7 +71,7 @@
     
     [[CityStore shared] loadStore];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:applicationWillEnterForeground object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationWillEnterForeground object:nil];
 }
 
 
