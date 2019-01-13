@@ -9,6 +9,7 @@
 #import "CityViewController.h"
 #import "City.h"
 #import "HomeViewController.h"
+#import "OriginMapView.h"
 
 @interface CityViewController ()
 
@@ -38,6 +39,8 @@
     self.humidityLabel.text = _city.humidity;
     self.windLabel.text = _city.wind;
     self.precipitationLabel.text = _city.windDirection;
+    
+    [self loadMap];
 }
 
 - (IBAction)showCities:(id)sender {
@@ -57,6 +60,13 @@
 - (IBAction)closeWindow:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) loadMap {
+    
+    [_mapView configureWithCoordinates:[_city getCoords]];
+    [_mapView addOriginAnnotation:_city.name];
+    [_mapView setRegion:MKCoordinateRegionMake(_mapView.centerCoordinate, MKCoordinateSpanMake(10.0, 10.0))];
 }
 
 @end

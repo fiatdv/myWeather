@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @class City;
+@class OriginMapView;
 
 @interface CityViewController : UIViewController
 
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *windLabel;
 @property (weak, nonatomic) IBOutlet UILabel *precipitationLabel;
+@property (weak, nonatomic) IBOutlet OriginMapView *mapView;
 
 @property (weak, nonatomic) id dataObject;
 @property (strong, nonatomic) City* city;

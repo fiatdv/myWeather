@@ -59,9 +59,9 @@ static NSString* const kRefreshCity = @"kRefreshCity";
 
 -(void) setupTimer {
     
-    if(!_timer) {
+    if(!_timer) { // every 5 minutes....
         
-        _timer = [NSTimer timerWithTimeInterval:30 target:self selector:@selector(refreshCityStore) userInfo:nil repeats:YES];
+        _timer = [NSTimer timerWithTimeInterval:60*5 target:self selector:@selector(refreshCityStore) userInfo:nil repeats:YES];
     
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
     }
